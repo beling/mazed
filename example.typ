@@ -1,7 +1,7 @@
 //#import "@preview/maze:0.1.0": maze
 #import "maze.typ": maze
 
-= Maze Example
+= Maze Examples
 
 == Basic Maze
 #maze(
@@ -12,7 +12,7 @@
   seed: 42,
 )
 
-== Maze with Start and Finish Markers
+== Red maze with Start and Finish Markers
 #maze(
   10,
   10,
@@ -21,4 +21,5 @@
   seed: 123,
   start_cont: [🚩],
   finish_cont: [🏁],
+  stroke: red
 )

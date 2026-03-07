@@ -1,7 +1,7 @@
 //#import "@preview/maze:0.1.0": maze
 #import "maze.typ": maze
 
-= Maze Examples
+= Examples
 
 == Basic Maze
 #maze(

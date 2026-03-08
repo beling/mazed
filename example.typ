@@ -10,14 +10,13 @@
   width: 10cm
 )
 
-== Red maze with Start and Finish Markers
+== Red maze with given seed, as well as start and finish markers
 #maze(
   10,
   10,
   width: 10cm,
-  height: 10cm,
   seed: 123,
-  start_cont: [🚩],
-  finish_cont: [🏁],
+  start: [🚩],
+  finish: [🏁],
   stroke: red
 )

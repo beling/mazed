@@ -30,7 +30,7 @@
 ///
 /// Example:
 /// ```typst
-/// #import "@preview/mazer:0.1.0": maze
+/// #import "@preview/mazed:0.1.0": maze
 ///
 /// #maze(
 ///   12,

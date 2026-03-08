@@ -1,4 +1,4 @@
-# mazify
+# mazed
 
 Procedural maze generator for Typst with customizable start and finish cells.
 
@@ -10,7 +10,7 @@ any two cells).
 ## Installation
 
 ```typst
-#import "@preview/mazify:0.1.0": maze
+#import "@preview/mazed:0.1.0": maze
 ```
 
 ## Examples

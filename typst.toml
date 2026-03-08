@@ -1,11 +1,11 @@
 [package]
-name = "mazify"
+name = "mazed"
 version = "0.1.0"
-entrypoint = "mazer.typ"
+entrypoint = "mazed.typ"
 authors = ["Piotr Beling"]
 license = "MIT"
 description = "Maze generator."
-repository = "https://github.com/beling/mazify"
+repository = "https://github.com/beling/mazed"
 
 [dependencies]
 suiji = "0.5.1"

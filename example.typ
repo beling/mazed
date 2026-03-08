@@ -1,5 +1,5 @@
-//#import "@preview/mazify:0.1.0": maze
-#import "mazify.typ": maze
+//#import "@preview/mazed:0.1.0": maze
+#import "mazed.typ": maze
 
 = Examples
 

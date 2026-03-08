@@ -15,8 +15,8 @@
 /// Optional content can be placed in the start and finish cells.
 ///
 /// Parameters:
-/// - C: Number of maze columns.
-/// - R: Number of maze rows.
+/// - cols: Number of maze columns.
+/// - rows: Number of maze rows.
 /// - width: Width of the rendered maze. Defaults to `100%`.
 /// - height: Height of the rendered maze. Defaults to `100%`.
 /// - seed: Seed for the pseudo-random generator. Using the same seed
@@ -30,7 +30,7 @@
 ///
 /// Example:
 /// ```typst
-/// #import "@preview/maze:0.1.0": maze
+/// #import "@preview/mazer:0.1.0": maze
 ///
 /// #maze(
 ///   12,

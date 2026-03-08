@@ -1,4 +1,4 @@
-# maze
+# mazer
 
 Procedural maze generator for Typst with customizable start and finish cells.
 
@@ -10,7 +10,7 @@ any two cells).
 ## Installation
 
 ```typst
-#import "@preview/maze:0.1.0": maze
+#import "@preview/mazer:0.1.0": maze
 ```
 
 ## Examples
@@ -70,7 +70,7 @@ maze(
 - `start_cont` - content placed in the start cell  
 - `finish_cont` - content placed in the finish cell  
 
-**Returns:** Typst content containing the rendered maze.
+**Returns:** Content containing the rendered maze.
 
 ## Algorithm
 

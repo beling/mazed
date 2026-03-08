@@ -1,11 +1,11 @@
 [package]
-name = "maze"
+name = "mazer"
 version = "0.1.0"
-entrypoint = "maze.typ"
+entrypoint = "mazer.typ"
 authors = ["Piotr Beling"]
 license = "MIT"
 description = "Maze generator for Typst."
-repository = "https://github.com/beling/typst-maze"
+repository = "https://github.com/beling/mazer"
 
 [dependencies]
 suiji = "0.5.1"

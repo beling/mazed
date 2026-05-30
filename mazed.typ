@@ -107,34 +107,59 @@
     visited.at(n) = true
   }
 
-  let draw_line(start, end) = {
-    (
-      curve.move((start.at(0) * LL, start.at(1) * LL)),
-      curve.line((end.at(0) * LL, end.at(1) * LL))
-    )
+  let get-thickness(stroke) = {
+    if stroke == none { return 0pt }
+    if stroke == auto { return 1pt }
+    let stroke-obj = std.stroke(stroke)
+    if stroke-obj.thickness == auto { 1pt } else { stroke-obj.thickness }
   }
+  let extra_thickness = get-thickness(stroke) / 2
+
+  let horizontal_line(row, col_start, col_end) = (  // must be col_start < col_end
+      curve.move((col_start * LL - extra_thickness, row * LL)),
+      curve.line((col_end * LL + extra_thickness, row * LL))
+    )
+
+  let vertical_line(col, row_start, row_end) = (  // must be row_start < row_end
+      curve.move((col * LL, row_start * LL - extra_thickness)),
+      curve.line((col * LL, row_end * LL + extra_thickness))
+    )
 
   block(
     box(place(box(align(center + horizon, start), width: LL, height: LL), dy: -rows*LL)) +
     box(place(box(align(center + horizon, finish), width: LL, height: LL), dx: (cols - 1)*LL, dy: -LL)) +
     box(curve(
-    ..draw_line((0, 0), (cols, 0)),
-    ..draw_line((0, rows), (cols, rows)),
-    ..draw_line((0, 1), (0, rows)),
-    ..draw_line((cols, 0), (cols, rows - 1)),
+    ..horizontal_line(0, 0, cols),
+    ..horizontal_line(rows, 0, cols),
+    ..vertical_line(0, 1, rows),
+    ..vertical_line(cols, 0, rows - 1),
     ..for r in range(rows - 1) {
-      for c in range(cols) {
-        if not up.at(index(c, r)) {
-          draw_line((c, r+1), (c+1, r+1))
+        let start_c = -1
+        for c in range(cols) {
+          if up.at(index(c, r)) {
+            if start_c != -1 {
+              horizontal_line(r+1, start_c, c)
+              start_c = -1
+            }
+          } else {
+            if start_c == -1 { start_c = c }
+          }
         }
-      }
+        if start_c != -1 { horizontal_line(r+1, start_c, cols) }
     },
     ..for c in range(cols - 1) {
-      for r in range(rows) {
-        if not right.at(index(c, r)) {
-          draw_line((c+1, r), (c+1, r+1))
+        let start_r = -1
+        for r in range(rows) {
+          if right.at(index(c, r)) {
+            if start_r != -1 {
+              vertical_line(c+1, start_r, r)
+              start_r = -1
+            }
+          } else {
+            if start_r == -1 { start_r = r }
+          }
         }
-      }
+        if start_r != -1 { vertical_line(c+1, start_r, rows) }
     },
     stroke: stroke
   )),

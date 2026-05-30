@@ -1,4 +1,4 @@
-//#import "@preview/mazed:0.1.0": maze
+//#import "@preview/mazed:0.1.1": maze
 #import "mazed.typ": maze
 
 = Examples
